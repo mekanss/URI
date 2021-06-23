@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+    int F1, F2, casos, res;
+    int cont=0;
+    scanf("%d",&casos);
+    while (cont < casos)
+    {
+        scanf("%d %d" ,&F1,&F2);
+        while (F2 != 0)
+        {
+            res = F1 % F2;
+            F1 = F2;
+            F2 = res;
+        }
+        printf("%d\n" ,F1);
+        cont++;
+    }
+    return 0;
+}
