@@ -1,0 +1,44 @@
+// RAPHAEL AZAMBUJA SILVA MACEDO
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.14159
+#define G 9.80665
+
+int main()
+{
+    float altura,angulo,velocidade;
+    double tempo,VelUP,VelHOR,val;
+    double alturamax, alturatotal,distancia;
+    double seno,cose;
+    int p1,p2,n;
+    val = PI/180;
+    while(scanf("%f" ,&altura) != EOF)
+    {
+        scanf("%d %d" ,&p1,&p2);
+        scanf("%d" ,&n);
+        while (n != 0)
+        {
+            scanf("%f %f" ,&angulo,&velocidade);
+            seno = sin(angulo*val);
+            cose = cos(angulo*val);
+            VelUP = seno*velocidade;
+            VelHOR = cose*velocidade;
+            alturamax = (VelUP*VelUP)/(2*G);
+            alturatotal = alturamax+altura;
+            tempo = sqrt((2*alturatotal)/G);
+            tempo = tempo + sqrt((2*alturamax/G));
+            distancia = tempo * VelHOR;
+            if (distancia > p1 && distancia < p2)
+            {
+                printf("%.5lf -> DUCK",distancia);
+            }
+            else
+            {
+                printf("%.5lf -> NUCK",distancia);
+            }
+            n--;
+        }
+    }
+    return 0;
+}
