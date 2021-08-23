@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    unsigned long long int N, casas, grao, gramas,kg;
+    int i = 0;
+    scanf("%lli" ,&N);
+    while (i < N)
+    {
+        scanf("%lli" ,&casas);
+        if (casas == 64)
+        {
+            grao = pow(2,63);
+            gramas = grao/12;
+            kg = gramas/1000;
+            kg = kg*2 + 1;
+        }
+        else
+        {
+            grao = pow(2,(casas));
+            gramas = grao/12;
+            kg = gramas/1000;
+        }
+        printf("%lli kg\n" ,kg);
+        i++;
+    }
+
+    return 0;
+}
